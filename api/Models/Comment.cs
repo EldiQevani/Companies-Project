@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using api.Models;
@@ -7,6 +8,7 @@ using api.Models;
 
 namespace api2.Models
 {
+    [Table("Comments")]
     public class Comment
     {
         public int Id { get; set; }

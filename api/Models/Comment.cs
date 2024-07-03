@@ -13,12 +13,11 @@ namespace api2.Models
     {
         public int Id { get; set; }
         public string Title { get; set; } = string.Empty;
-        public string Content { get; set; } = string.Empty;        //Entity framework, .Net Core will search through our code and form this relantioship
+        public string Content { get; set; } = string.Empty;
         public DateTime CreatedOn { get; set; } = DateTime.Now;
         public int? StockId { get; set; }
-        //Navigation property
-        //Entity framework will take our database tables and turn them into objects
-        //An object is the representation of one row in the database
         public Stock? Stock { get; set; }
+        public string AppUserId { get; set; }
+        public AppUser AppUser { get; set; }
     }
 }

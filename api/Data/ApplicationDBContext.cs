@@ -28,12 +28,12 @@ namespace api2.Data
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<Portfolio>(x => x.HasKey(p => new { p.AppUserID, p.StockId}));
+            builder.Entity<Portfolio>(x => x.HasKey(p => new { p.AppUserId, p.StockId}));
 
             builder.Entity<Portfolio>()
                 .HasOne(u => u.AppUser)
                 .WithMany(u => u.Portfolios)
-                .HasForeignKey(p => p.AppUserID);
+                .HasForeignKey(p => p.AppUserId);
 
             builder.Entity<Portfolio>()
                 .HasOne(u => u.Stock)

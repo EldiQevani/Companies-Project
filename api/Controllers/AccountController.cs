@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace api.Controllers
 {
     [Route("api/account")]
@@ -19,7 +18,6 @@ namespace api.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly ITokenService _tokenService;
         private readonly SignInManager<AppUser> _signinManager;
-
         public AccountController(UserManager<AppUser> userManager, ITokenService tokenService, SignInManager<AppUser> signInManager)
         {
             _userManager = userManager;
@@ -54,9 +52,9 @@ namespace api.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
         {
-            try 
+            try
             {
-                if(!ModelState.IsValid)
+                if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
                 var appUser = new AppUser
@@ -67,10 +65,10 @@ namespace api.Controllers
 
                 var createdUser = await _userManager.CreateAsync(appUser, registerDto.Password);
 
-                if(createdUser.Succeeded)
+                if (createdUser.Succeeded)
                 {
                     var roleResult = await _userManager.AddToRoleAsync(appUser, "User");
-                    if(roleResult.Succeeded)
+                    if (roleResult.Succeeded)
                     {
                         return Ok(
                             new NewUserDto
@@ -80,17 +78,17 @@ namespace api.Controllers
                                 Token = _tokenService.CreateToken(appUser)
                             }
                         );
-                    } 
-                    else 
+                    }
+                    else
                     {
                         return StatusCode(500, roleResult.Errors);
                     }
                 }
-                else 
+                else
                 {
                     return StatusCode(500, createdUser.Errors);
                 }
-            } 
+            }
             catch (Exception e)
             {
                 return StatusCode(500, e);

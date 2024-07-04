@@ -9,10 +9,10 @@ namespace api.Dtos.Stock
     public class CreateStockRequestDto
     {
         [Required]
-        [MaxLength(10, ErrorMessage ="Symbol cannot be over 10 characters")]
+        [MaxLength(14, ErrorMessage ="Symbol cannot be over 4 characters")]
         public string Symbol { get; set; } = string.Empty;
         [Required]
-        [MaxLength(10, ErrorMessage ="Company name cannot be over 10 characters")]
+        [MaxLength(15, ErrorMessage ="Company name cannot be over 15 characters")]
         public string CompanyName { get; set; } = string.Empty;
         [Required]
         [Range(1, 1000000000)]

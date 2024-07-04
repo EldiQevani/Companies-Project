@@ -7,7 +7,7 @@
 namespace api2.Migrations
 {
     /// <inheritdoc />
-    public partial class CommentOneToOne : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -43,8 +43,8 @@ namespace api2.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "2dffdfa4-f33e-49e1-8438-26054cc3a19c", null, "Admin", "ADMIN" },
-                    { "aa74b8c0-5d9c-4357-bb8d-ec9b660d3f1f", null, "User", "USER" }
+                    { "2c9670c4-1126-4733-99fd-7203aa7262e0", null, "Admin", "ADMIN" },
+                    { "88d10d02-0cce-4d2a-9318-68a2ff27b4d0", null, "User", "USER" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -87,12 +87,12 @@ namespace api2.Migrations
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "2dffdfa4-f33e-49e1-8438-26054cc3a19c");
+                keyValue: "2c9670c4-1126-4733-99fd-7203aa7262e0");
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "aa74b8c0-5d9c-4357-bb8d-ec9b660d3f1f");
+                keyValue: "88d10d02-0cce-4d2a-9318-68a2ff27b4d0");
 
             migrationBuilder.DropColumn(
                 name: "AppUserId",

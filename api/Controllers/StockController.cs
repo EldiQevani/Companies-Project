@@ -34,9 +34,9 @@ namespace api.Controllers
             // select will return a array/list of stockdto
             var stocks = await _stockRepo.GetAllAsync(query);
 
-            var stockDto = stocks.Select(s => s.ToStockDto());
+            var stockDto = stocks.Select(s => s.ToStockDto()).ToList();
 
-            return Ok(stocks);
+            return Ok(stockDto);
         }
 
         //IActionResult is whenever you return something from the API, you dont have to go through deep in the code
